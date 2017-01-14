@@ -8,7 +8,7 @@ angular.module("chat").
         // var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Messages";
 
         $scope.sessionkey = Math.floor(Math.random() * 2147483647);
-        $scope.username = "";
+        $scope.username = $scope.sessionkey;
 
         // fucking changes the session
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions"+ "/" + $scope.sessionkey;
