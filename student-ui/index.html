@@ -4,7 +4,23 @@
       <iframe width="100%" height="100%" src="https://www.youtube.com/embed/H1XTyGPV8uM" frameborder="0" allowfullscreen></iframe>
     </td>
     <td>
-      <iframe width="100%" height="100%" src = "chat.html"></iframe>
+
+      <button id="button" onclick="visible()">Ask a TA</button>
+      <iframe id="chat" width="100%" height="100%" src = "chat.html" style="visibility:hidden"></iframe>
+
+      <script type="text/javascript">
+      function visible() {
+        if (document.getElementById("chat").style.visibility=='visible') {
+          document.getElementById("chat").style.visibility='hidden'
+          document.getElementById("button").innerHTML = "Ask a TA";
+        } else {
+          document.getElementById("chat").style.visibility='visible';
+          document.getElementById("button").innerHTML = "nvm";
+        }
+
+      }
+      </script>
+
     </td>
   </tr>
   <tr>
@@ -14,5 +30,5 @@
   </tr>
 
   <iframe src = "chat_queue.html" height="50%" width="30%"></iframe>
-  
+
 </table>
