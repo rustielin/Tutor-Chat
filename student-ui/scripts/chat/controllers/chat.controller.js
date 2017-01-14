@@ -11,29 +11,20 @@ angular.module("chat").
         $scope.username = "Your name here:";
 
 
-
-        // generate teh queue on startup
-        var firebaseUrl = "https://tutor-chat.firebaseio.com/Queues"+ "/" + $scope.sessionkey;
-        var queueRef = new Firebase(firebaseUrl);
-        var sync = $firebase(queueRef);
-
-        queueRef.set({name: $scope.username})
-
-        // listen for new queues
-        queueRef.on("child_added", function(snapshot) {
-            var queue = snapshot.val();
-
-        })
-
-
         // fucking changes the session
-        var firebaseUrl = "https://tutor-chat.firebaseio.com/Session"+ "/" + $scope.sessionkey;
+        var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions"+ "/" + $scope.sessionkey;
         var chatRef = new Firebase(firebaseUrl);
         var sync = $firebase(chatRef);
 
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter
             if (keyEvent.which === 13) {
+                // generate teh queue
+                var firebaseUrl_queue = "https://tutor-chat.firebaseio.com/Queues"+ "/" + $scope.sessionkey;
+                var queueRef = new Firebase(firebaseUrl_queue);
+                queueRef.set({name: $scope.username})
+
+
                 console.log("Enter clicked : " + $scope.new_message);
 
                 $scope.chat_messages = sync.$asArray();
