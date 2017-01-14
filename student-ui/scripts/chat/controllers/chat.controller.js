@@ -14,10 +14,11 @@ angular.module("chat").
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions"+ "/" + $scope.sessionkey;
         var chatRef = new Firebase(firebaseUrl);
         var sync = $firebase(chatRef);
+        var queued = false;
 
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter
-            if (keyEvent.which === 13) {
+            if (keyEvent.which === 13 & !queued) {
                 // generate teh queue
                 var firebaseUrl_queue = "https://tutor-chat.firebaseio.com/Queues"+ "/" + $scope.sessionkey;
                 var queueRef = new Firebase(firebaseUrl_queue);
