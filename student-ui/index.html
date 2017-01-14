@@ -1,3 +1,7 @@
+<head>
+    <title>TutorChat</title>
+</head>
+
 <table style="width:100%" height="100%">
   <tr>
     <td rowspan="2" width="75%">
@@ -16,6 +20,7 @@
           document.getElementById("chat").style.visibility='hidden'
           document.getElementById("button").innerHTML = "Ask a TA";
         } else {
+            document.getElementById("chat").src = "chat.html";
           document.getElementById("chat").style.visibility='visible';
           document.getElementById("button").innerHTML = "nvm";
         }
