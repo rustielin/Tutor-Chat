@@ -28,40 +28,21 @@
 <div class="container" ng-controller="ChatQueueController">
     <div class="row">
         <div class="col-md-4">
-            <!-- <span class="label label-primary">Session Key: </span><input type="text" class="form-control" ng-model="sessionkey">
-            <span class="label label-primary">Subject: </span><input type="text" class="form-control" ng-model="subject"> -->
+            <span class="label label-primary">Session Key: </span><input type="text" class="form-control" ng-model="sessionkey">
+            <span class="label label-primary">Queue: </span><input type="text" class="form-control" ng-model="subject">
 
 
 
-            <button ng-click="count = count + 1" ng-init="count=0">
+            <!-- <button ng-click="$scope.count = $scope.count + 1" ng-init="$scope.count=0">
               Increment
             </button>
             <span>
               count: {{count}}
-            </span>
+            </span> -->
 
 
         </div>
 </div>
-
-<div ng-app="chat" ng-controller='ChatQueueController'>
-
-  <p>val={{val}}</p>
-  <button ng-click="inc();">click to increment</button>
-
-
-</div>
-
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script>
-      var module = angular.module('chat', []);
-      module.controller('ChatQueueController', function($scope) {
-        $scope.val = 1;
-        $scope.inc = function() {
-          $scope.val += 1;
-        };
-      });
-    </script>
 
 
     <script src="lib/angular.js"></script>
