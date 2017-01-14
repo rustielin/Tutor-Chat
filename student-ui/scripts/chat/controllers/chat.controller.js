@@ -20,6 +20,7 @@ angular.module("chat").
             // whenever enter
             if (keyEvent.which === 13 & !queued) {
                 // generate teh queue
+                queued = true;
                 var firebaseUrl_queue = "https://tutor-chat.firebaseio.com/Queues"+ "/" + $scope.sessionkey;
                 var queueRef = new Firebase(firebaseUrl_queue);
                 queueRef.set({name: $scope.username});
