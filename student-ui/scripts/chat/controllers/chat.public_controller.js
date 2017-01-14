@@ -14,6 +14,8 @@ angular.module("chat").
         var chatRef = new Firebase(firebaseUrl);
         var sync = $firebase(chatRef);
 
+        $scope.chat_messages = sync.$asArray();
+
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter
             if (keyEvent.which === 13) {
