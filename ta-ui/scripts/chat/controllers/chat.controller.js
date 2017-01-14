@@ -8,7 +8,7 @@ angular.module("chat").
         // var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Messages";
 
         $scope.sessionkey = "Session key here:";
-        $scope.username = "Your name here:";
+        $scope.username = "Your name here";
 
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter

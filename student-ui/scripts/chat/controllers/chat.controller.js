@@ -10,7 +10,6 @@ angular.module("chat").
         $scope.sessionkey = Math.floor(Math.random() * 2147483647);
         $scope.username = "";
 
-
         // fucking changes the session
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions"+ "/" + $scope.sessionkey;
         var chatRef = new Firebase(firebaseUrl);
