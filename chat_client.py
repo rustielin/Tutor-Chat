@@ -58,6 +58,13 @@ if __name__ == '__main__':
     # Post new messages to Firebase
     while (True):
         message = raw_input("")
+
+        # with num as open("numbers.txt", "r+"):
+        #     counter = int(num.nextline())
+        #     counter += 1
+        #     num.write(counter)
+        #
+
         print("\n")
         fb.post('/Sessions/Messages',
                 {

@@ -8,7 +8,7 @@ FIREBASE_URL = "https://tutor-chat.firebaseio.com/"
 if __name__ == '__main__':
     fb = firebase.FirebaseApplication(FIREBASE_URL, None) # Create a reference to the Firebase Application
 
-    sse = SSEClient("https://dazzling-fire-5952.firebaseio.com/Sessions.json")
+    sse = SSEClient("https://tutor-chat.firebaseio.com/Sessions.json")
 
     for new_message in sse:
         message_data = json.loads(new_message.data)
