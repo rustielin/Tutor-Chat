@@ -6,10 +6,9 @@ import time
 
 FIREBASE_URL = "https://tutor-chat.firebaseio.com/"
 
-
 def poll_chat():
-    sse = SSEClient(FIREBASE_URL + "PythonChatDemo/Messages.json")
-    print("Watching Firebase node - %s" % (FIREBASE_URL + "PythonChatDemo/Messages.json"))
+    sse = SSEClient(FIREBASE_URL + "Sessions/Messages.json")
+    print("Watching Firebase node - %s" % (FIREBASE_URL + "Sessions/Messages.json"))
 
     for new_message in sse:
         message_data = json.loads(new_message.data)
@@ -50,7 +49,7 @@ if __name__ == '__main__':
     fb = firebase.FirebaseApplication(FIREBASE_URL, None)
 
     # Post initial message to Firebase
-    fb.post('/PythonChatDemo/Messages',
+    fb.post('/Sessions/Messages',
             {"name": username,
              "message": "Joined the chat",
              ".priority": time.time() * 1000
@@ -60,7 +59,7 @@ if __name__ == '__main__':
     while (True):
         message = raw_input("")
         print("\n")
-        fb.post('/PythonChatDemo/Messages',
+        fb.post('/Sessions/Messages',
                 {
                     "name": username,
                     "message": message,

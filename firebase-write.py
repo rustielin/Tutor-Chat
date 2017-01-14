@@ -9,4 +9,4 @@ if __name__ == '__main__':
 
     data = raw_input("Input Data: ") # Get data from terminal
 
-    fb.put('/PythonDemo/Node1', "Data", data) # Add data to Node Node1
+    fb.put('/Sessions/Node1', "Data", data) # Add data to Node Node1

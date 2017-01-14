@@ -5,7 +5,7 @@
 angular.module("chat").
     factory("ChatService", ["$firebase", function($firebase) {
         console.log("In service");
-        var firebaseUrl = "https://tutor-chat.firebaseio.com/PythonChatDemo/Track";
+        var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Track";
         var chatRef = new Firebase(firebaseUrl);
 
         chatRef.on("child_added", function(snapshot) {
