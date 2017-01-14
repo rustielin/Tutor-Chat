@@ -28,37 +28,32 @@
 <div class="container" ng-controller="ChatQueueController">
     <div class="row">
         <div class="col-md-4">
-            <span class="label label-primary">Session Key: </span><input type="text" class="form-control" ng-model="sessionkey">
-            <span class="label label-primary">Subject: </span><input type="text" class="form-control" ng-model="subject">
+            <!-- <span class="label label-primary">Session Key: </span><input type="text" class="form-control" ng-model="sessionkey">
+            <span class="label label-primary">Subject: </span><input type="text" class="form-control" ng-model="subject"> -->
+
 
         </div>
 </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-info" >
 
-                <div class="panel-heading">
-                    <span>Chat History </span>
-                </div>
-                <div class="panel-body fixed-panel" scroll-glue="glued">
-                    <ul class="media-list">
+<div ng-app="chat" ng-controller='ChatQueueController'>
 
-                        <li class="media" ng-repeat="message in chat_messages">
+  <p>val={{val}}</p>
+  <button ng-click="inc();">click to increment</button>
 
-			    <!-- Debug: Message : {{message}} -->
-                            <span class="label label-primary" ng-bind="message.name"></span>&nbsp;
-                            <span class="message" ng-bind="message.message"></span>
-                        </li>
 
-                    </ul>
-                </div>
-                <div class="panel-footer">
-                    <input type="text" class="form-control" placeholder="Enter message ..." ng-keypress="newMessageKeyPress($event)" ng-model="new_message">
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script>
+      var module = angular.module('chat', []);
+      module.controller('ChatQueueController', function($scope) {
+        $scope.val = 1;
+        $scope.inc = function() {
+          $scope.val += 1;
+        };
+      });
+    </script>
+
 
     <script src="lib/angular.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.0/firebase.js"></script>
