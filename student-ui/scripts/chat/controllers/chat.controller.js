@@ -18,13 +18,14 @@ angular.module("chat").
 
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter
-            if (keyEvent.which === 13 & !queued) {
+            if (keyEvent.which === 13) {
                 // generate teh queue
-                queued = true;
-                var firebaseUrl_queue = "https://tutor-chat.firebaseio.com/Queues"+ "/" + $scope.sessionkey;
-                var queueRef = new Firebase(firebaseUrl_queue);
-                queueRef.set({name: $scope.username});
-
+                if (!queued) {
+                    queued = true;
+                    var firebaseUrl_queue = "https://tutor-chat.firebaseio.com/Queues"+ "/" + $scope.sessionkey;
+                    var queueRef = new Firebase(firebaseUrl_queue);
+                    queueRef.set({name: $scope.username});
+                }
 
                 console.log("Enter clicked : " + $scope.new_message);
 
