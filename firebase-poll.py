@@ -2,7 +2,7 @@ from firebase import firebase
 from sseclient import SSEClient
 import json
 
-FIREBASE_URL = https://tutor-chat.firebaseio.com/"
+FIREBASE_URL = "https://tutor-chat.firebaseio.com/"
 
 # Main
 if __name__ == '__main__':
