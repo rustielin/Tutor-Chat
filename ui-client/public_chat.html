@@ -25,21 +25,20 @@
 </head>
 <body ng-app="chat">
 
-<div class="container" ng-controller="PublicChatController">
+<div ng-controller="PublicChatController">
     <div class="row">
-        <div class="col-md-4">
-            <span text-align="center">PUBLIC CHAT</span>
-            </br>
-            <span class="label label-primary">Name: </span><input type="text" class="form-control" ng-model="username">
-        </div>
+        <!-- <div class="col-md-4">
+
+        </div> -->
 </div>
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-info" >
 
                 <div class="panel-heading">
-                    <span>Chat History </span>
+                    <span>Public Chat History </span>
                 </div>
+                <input type="text" class="form-control" ng-model="username">
                 <div class="panel-body fixed-panel" scroll-glue="glued">
                     <ul class="media-list">
 
