@@ -8,7 +8,7 @@ angular.module("chat").
         // var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Messages";
 
         $scope.sessionkey = Math.floor(Math.random() * 2147483647);
-        $scope.username = "Your name here:";
+        $scope.username = "";
 
 
         // fucking changes the session
@@ -22,7 +22,7 @@ angular.module("chat").
                 // generate teh queue
                 var firebaseUrl_queue = "https://tutor-chat.firebaseio.com/Queues"+ "/" + $scope.sessionkey;
                 var queueRef = new Firebase(firebaseUrl_queue);
-                queueRef.set({name: $scope.username})
+                queueRef.set({name: $scope.username});
 
 
                 console.log("Enter clicked : " + $scope.new_message);

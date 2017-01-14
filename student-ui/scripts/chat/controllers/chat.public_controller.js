@@ -7,7 +7,7 @@ angular.module("chat").
         console.log("In controller");
 
         $scope.sessionkey = "Session key here:";
-        $scope.username = "Your name here:";
+        $scope.username = "";
 
         // fucking changes the session
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Public";
