@@ -31,6 +31,15 @@
             <span class="label label-primary">Session Key: </span><input type="text" class="form-control" ng-model="sessionkey">
             <span class="label label-primary">Subject: </span><input type="text" class="form-control" ng-model="subject">
 
+
+            <button ng-click="count = count + 1" ng-init="count=0">
+              Increment
+            </button>
+            <span>
+              count: {{count}}
+            </span>
+
+
         </div>
 </div>
     <div class="row">
