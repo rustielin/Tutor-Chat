@@ -5,17 +5,11 @@
 angular.module("chat").
     controller("ChatController", ['$scope', '$firebase', function ($scope, $firebase) {
         console.log("In controller");
-        // var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Messages";
 
-        $scope.sessionkey = "Session key here:";
         $scope.username = "";
 
-        var firebaseUrl = "https://tutor-chat.firebaseio.com/Queues"
+        var firebaseUrl = "https://tutor-chat.firebaseio.com/Queues";
         var chatRef = new Firebase(firebaseUrl);
-
-        var sync = $firebase(chatRef);
-
-        $scope.queue = 0;
 
         chatRef.on('value', function(snapshot) {
           // var snap = snapshot.child();
@@ -24,15 +18,27 @@ angular.module("chat").
               var childData = childSnapshot.val();
               var queue = childData.name;
               if (queue === parseInt(queue, 10)) {
+                // alert(queue);
                 $scope.queue = queue;
-                return true;
+                return;
               }
             });
         });
-        
+
+        $scope.kill_queue = function() {
+          chatRef.child($scope.queue).remove();
+        }
+
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter
             if (keyEvent.which === 13) {
+
+                // $scope.kill_queue();
+
+                var firebaseUrl_message = "https://tutor-chat.firebaseio.com/Sessions" + "/" + $scope.queue;
+                var chatRef_message = new Firebase(firebaseUrl_message);
+                var sync = $firebase(chatRef_message);
+
                 console.log("Enter clicked : " + $scope.new_message);
                 $scope.chat_messages = sync.$asArray();
 
