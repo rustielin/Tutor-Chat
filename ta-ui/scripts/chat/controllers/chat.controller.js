@@ -6,7 +6,7 @@ angular.module("chat").
     controller("ChatController", ['$scope', '$firebase', function ($scope, $firebase) {
         console.log("In controller");
 
-        $scope.username = "";
+        $scope.username = "TA";
 
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Queues";
         var chatRef = new Firebase(firebaseUrl);
