@@ -23,7 +23,7 @@ angular.module("chat").
 
                 $scope.chat_messages = sync.$asArray();
 
-                if ($scope.new_message != "") {
+                if ($scope.new_message != "" && $scope.username != "") {
                     $scope.chat_messages.$add({name: $scope.username, message: $scope.new_message, $priority: Date.now()});
                     $scope.new_message = "";
                 }
