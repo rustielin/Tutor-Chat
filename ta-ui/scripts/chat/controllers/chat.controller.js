@@ -13,12 +13,10 @@ angular.module("chat").
         var chatRef = new Firebase(firebaseUrl);
 
         var sync = $firebase(chatRef);
-        //initialize messages just in case
+        //initialize messages to see available students
         $scope.chat_messages = sync.$asArray();
 
         chatRef.on('value', function(snapshot) {
-          // var snap = snapshot.child();
-          // console.log("VALLL  " + snap.name);
             snapshot.forEach(function(childSnapshot) {
               var childData = childSnapshot.val();
               var queue = childData.name;
@@ -33,8 +31,6 @@ angular.module("chat").
         // connect with some guy via queue, start a chat session, then kill his queue
         $scope.connectQueue = function() {
           chatRef.on('value', function(snapshot) {
-            // var snap = snapshot.child();
-            // console.log("VALLL  " + snap.name);
               snapshot.forEach(function(childSnapshot) {
                 var childData = childSnapshot.val();
                 var queue = childData.name;

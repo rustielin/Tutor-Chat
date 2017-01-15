@@ -1,7 +1,3 @@
-/**
- * Created by mayureshp on 2/17/2015.
- */
-
 angular.module("chat").
     controller("PublicChatController", ['$scope', '$firebase', function ($scope, $firebase) {
         console.log("In controller");
@@ -9,7 +5,7 @@ angular.module("chat").
         $scope.sessionkey = "Session key here:";
         $scope.username = "";
 
-        // fucking changes the session
+        // changes the session
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Public";
         var chatRef = new Firebase(firebaseUrl);
         var sync = $firebase(chatRef);

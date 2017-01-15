@@ -1,7 +1,3 @@
-/**
- * Created by mayureshp on 2/17/2015.
- */
-
 angular.module("chat").
     controller("PublicChatController", ['$scope', '$firebase', function ($scope, $firebase) {
         console.log("In controller");

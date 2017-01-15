@@ -2,12 +2,10 @@
 angular.module("chat").
     controller("ChatController", ['$scope', '$firebase', function ($scope, $firebase) {
         console.log("In controller");
-        // var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Messages";
-
         $scope.sessionkey = Math.floor(Math.random() * 2147483647);
         $scope.username = $scope.sessionkey;
 
-        // fucking changes the session
+        // changes the session
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions"+ "/" + $scope.sessionkey;
         var chatRef = new Firebase(firebaseUrl);
         var sync = $firebase(chatRef);
