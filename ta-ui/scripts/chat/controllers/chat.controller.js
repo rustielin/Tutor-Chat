@@ -8,6 +8,8 @@ angular.module("chat").
 
         $scope.username = "TA";
 
+        var connected = false;
+
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Queues";
         var chatRef = new Firebase(firebaseUrl);
 
@@ -44,7 +46,7 @@ angular.module("chat").
                 }
               });
           });
-
+          connected = true;
           $scope.kill_queue();
         }
 
@@ -56,17 +58,18 @@ angular.module("chat").
             // whenever enter
             if (keyEvent.which === 13) {
 
-                // $scope.kill_queue();
+              if (!connected) {
                 var firebaseUrl_message = "https://tutor-chat.firebaseio.com/Sessions" + "/" + $scope.queue;
                 var chatRef_message = new Firebase(firebaseUrl_message);
                 var sync_message = $firebase(chatRef_message);
+              }
 
                 console.log("Enter clicked : " + $scope.new_message);
                 $scope.chat_messages = sync_message.$asArray();
 
                 // no empty string messages
                 if ($scope.new_message != "") {
-                    $scope.chat_messages.$add({name: $scope.username, message: $scope.new_message, $priority: Date.now()});
+                    $scope.chat_messages.$add({name: $scope.username, message: $scope.new_message, priority: Date.now()});
                     $scope.new_message = "";
                 }
             }
