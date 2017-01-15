@@ -6,7 +6,7 @@ angular.module("chat").
     controller("PublicChatController", ['$scope', '$firebase', function ($scope, $firebase) {
         console.log("In controller");
 
-        $scope.sessionkey = "Session key here:";
+        $scope.sessionkey = "";
         $scope.username = "";
 
         // fucking changes the session

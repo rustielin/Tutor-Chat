@@ -7,7 +7,7 @@ angular.module("chat").
         console.log("In controller");
         // var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Messages";
 
-        $scope.sessionkey = "Session key here:";
+        $scope.sessionkey = "";
         $scope.username = "";
 
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Queues"
