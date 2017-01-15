@@ -53,6 +53,18 @@
                 </div>
             </div>
         </div>
+
+        <div ng-app="chat" ng-controller="ChatController">
+          <button style="padding: 4px 8px; color: #8c8c8c; text-align: center; font-size:14px;" id="button" ng-click="kill">Kill Queue</button>
+        </div>
+
+        <!-- <script type="text/javascript">
+        var app = angular.module("chat", []);
+        app.controller("ChatController", function($scope) {
+          $scope.kill = $scope.delete_queue
+        });
+        </script> -->
+
     </div>
 </div>
 
