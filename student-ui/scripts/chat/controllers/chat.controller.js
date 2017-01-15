@@ -1,6 +1,3 @@
-/**
- * Created by mayureshp on 2/17/2015.
- */
 
 angular.module("chat").
     controller("ChatController", ['$scope', '$firebase', function ($scope, $firebase) {

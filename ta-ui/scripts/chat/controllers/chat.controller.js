@@ -1,14 +1,13 @@
-/**
- * Created by mayureshp on 2/17/2015.
- */
+var connected = false;
+var firebaseUrl_message;
+var chatRef_message;
+var sync_message;
 
 angular.module("chat").
     controller("ChatController", ['$scope', '$firebase', function ($scope, $firebase) {
         console.log("In controller");
 
         $scope.username = "TA";
-
-        var connected = false;
 
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Queues";
         var chatRef = new Firebase(firebaseUrl);
@@ -46,8 +45,7 @@ angular.module("chat").
                 }
               });
           });
-          connected = true;
-          $scope.kill_queue();
+          connected = false;
         }
 
         $scope.kill_queue = function() {
@@ -59,9 +57,11 @@ angular.module("chat").
             if (keyEvent.which === 13) {
 
               if (!connected) {
-                var firebaseUrl_message = "https://tutor-chat.firebaseio.com/Sessions" + "/" + $scope.queue;
-                var chatRef_message = new Firebase(firebaseUrl_message);
-                var sync_message = $firebase(chatRef_message);
+                firebaseUrl_message = "https://tutor-chat.firebaseio.com/Sessions" + "/" + $scope.queue;
+                chatRef_message = new Firebase(firebaseUrl_message);
+                sync_message = $firebase(chatRef_message);
+                $scope.kill_queue();
+                connected = true;
               }
 
                 console.log("Enter clicked : " + $scope.new_message);
