@@ -14,6 +14,8 @@ angular.module("chat").
         var chatRef = new Firebase(firebaseUrl);
 
         var sync = $firebase(chatRef);
+        //initialize messages just in case
+        $scope.chat_messages = sync.$asArray();
 
         $scope.queue = 0;
 
@@ -29,7 +31,7 @@ angular.module("chat").
               }
             });
         });
-        
+
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter
             if (keyEvent.which === 13) {
