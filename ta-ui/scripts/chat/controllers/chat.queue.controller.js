@@ -6,7 +6,7 @@ angular.module("chat").
     controller("ChatQueueController", ['$scope', '$firebase', function ($scope, $firebase) {
         console.log("In controller");
 
-        $scope.sessionkey = "Session key here:";
+        $scope.sessionkey = "";
         $scope.count = 0;
 
         var button = document.createElement("button");

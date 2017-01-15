@@ -11,6 +11,11 @@ angular.module("chat").
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Queues";
         var chatRef = new Firebase(firebaseUrl);
 
+
+        var sync = $firebase(chatRef);
+        //initialize messages just in case
+        $scope.chat_messages = sync.$asArray();
+
         chatRef.on('value', function(snapshot) {
           // var snap = snapshot.child();
           // console.log("VALLL  " + snap.name);
@@ -28,7 +33,6 @@ angular.module("chat").
         $scope.kill_queue = function() {
           chatRef.child($scope.queue).remove();
         }
-
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter
             if (keyEvent.which === 13) {
