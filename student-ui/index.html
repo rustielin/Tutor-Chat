@@ -8,26 +8,7 @@
       <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6NlwpEArfwk" frameborder="0" allowfullscreen></iframe>
     </td>
     <td align="right">
-      <div style="padding-top: 2px; padding-bottom: 2px">
-        <button style="padding: 4px 8px; color: #8c8c8c; text-align: center; font-size:14px;" id="button" onclick="visible()">Ask a TA</button>
-
-      </div>
-      <iframe id="chat" scrolling="no" frameborder="0" width="100%" height="100%" src="chat.html" style="visibility:hidden"></iframe>
-
-      <script type="text/javascript">
-      function visible() {
-        if (document.getElementById("chat").style.visibility=='visible') {
-          document.getElementById("chat").style.visibility='hidden'
-          document.getElementById("button").innerHTML = "Ask a TA";
-        } else {
-            document.getElementById("chat").src = "chat.html";
-          document.getElementById("chat").style.visibility='visible';
-          document.getElementById("button").innerHTML = "nvm";
-        }
-
-      }
-      </script>
-
+      <iframe scrolling="no" frameborder="0" width="100%" height="100%" src="chat.html"></iframe>
     </td>
   </tr>
   <tr>

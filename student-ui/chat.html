@@ -26,10 +26,24 @@
 
 <body ng-app="chat">
 
-<div ng-controller="ChatController">
+  <div style="padding-top: 2px; padding-bottom: 2px">
+    <button style="padding: 4px 8px; color: #8c8c8c; text-align: center; font-size:14px;" id="button" onclick="visible()">Ask a TA</button>
+  </div>
+
+  <script type="text/javascript">
+  function visible() {
+    if (document.getElementById("actualchat").style.visibility=='visible') {
+      window.location.reload()
+    } else {
+      document.getElementById("actualchat").style.visibility='visible';
+      document.getElementById("button").innerHTML = "nvm";
+    }
+
+  }
+  </script>
+
+<div id="actualchat" ng-controller="ChatController" style="visibility: hidden">
     <div class="row">
-        <!-- <div class="col-md-4">
-        </div> -->
     </div>
     <div class="row">
         <div class="col-md-8">
@@ -38,9 +52,6 @@
               <div class="panel-heading">
                   <span>Tutor Chat History</span>
               </div>
-                <!-- <input type="text" class="panel-heading" ng-model="sessionkey"> -->
-                <!-- <input type="text" class="form-control" placeholder="Your name here" ng-model="username"> -->
-
                 <div class="panel-body fixed-panel" scroll-glue="glued">
                     <ul class="media-list">
 
