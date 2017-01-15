@@ -25,6 +25,10 @@
 </head>
 <body ng-app="chat">
 
+  <div style="padding-top: 2px; padding-bottom: 2px" ng-controller="ChatController">
+      <button style="padding: 4px 8px; color: #8c8c8c; text-align: center; font-size:14px;" ng-click="connectQueue()">Connect</button>
+  </div>
+
 <div ng-controller="ChatController">
     <div class="row">
         <div class="col-md-8">
@@ -52,10 +56,6 @@
                     <input type="text" class="form-control" placeholder="Enter message ..." ng-keypress="newMessageKeyPress($event)" ng-model="new_message">
                 </div>
             </div>
-        </div>
-
-        <div ng-controller="ChatController">
-            <button ng-click="connectQueue()">Connect</button>
         </div>
 
 
