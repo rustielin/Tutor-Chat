@@ -41,6 +41,7 @@ angular.module("chat").
                 if (queue === parseInt(queue, 10)) {
                   // alert(queue);
                   $scope.queue = queue;
+                  document.getElementById("privatechatheader").innerHTML='New Student Connected';
                   return;
                 }
               });
@@ -61,6 +62,7 @@ angular.module("chat").
                 chatRef_message = new Firebase(firebaseUrl_message);
                 sync_message = $firebase(chatRef_message);
                 $scope.kill_queue();
+                document.getElementById("privatechatheader").innerHTML='Student Private Chat'
                 connected = true;
               }
 
