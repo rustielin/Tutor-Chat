@@ -25,8 +25,6 @@ angular.module("chat").
               }
 
 
-
-
               // console.log("LOGGERRRRR " + childData.name);
             });
         });

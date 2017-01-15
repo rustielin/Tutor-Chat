@@ -7,12 +7,14 @@ angular.module("chat").
         console.log("In controller");
 
         $scope.sessionkey = "Session key here:";
-        $scope.username = "Your name here";
+        $scope.username = "";
 
         // fucking changes the session
         var firebaseUrl = "https://tutor-chat.firebaseio.com/Sessions/Public";
         var chatRef = new Firebase(firebaseUrl);
         var sync = $firebase(chatRef);
+
+        $scope.chat_messages = sync.$asArray();
 
         $scope.newMessageKeyPress = function(keyEvent) {
             // whenever enter
@@ -20,9 +22,10 @@ angular.module("chat").
                 console.log("Enter clicked : " + $scope.new_message);
 
                 $scope.chat_messages = sync.$asArray();
-
-                $scope.chat_messages.$add({name: $scope.username, message: $scope.new_message, $priority: Date.now()});
-                $scope.new_message = "";
+                if ($scope.new_message != "") {
+                    $scope.chat_messages.$add({name: $scope.username, message: $scope.new_message, $priority: Date.now()});
+                    $scope.new_message = "";
+                }
             }
         }
 

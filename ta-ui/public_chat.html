@@ -25,17 +25,20 @@
 </head>
 <body ng-app="chat">
 
-<div ng-controller="ChatController">
+<div ng-controller="PublicChatController">
+    <div class="row">
+        <!-- <div class="col-md-4">
+
+        </div> -->
+</div>
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-info" >
+
                 <div class="panel-heading">
-                  <span>Student Chat History</span>
+                    <span>Public Chat History </span>
                 </div>
                 <input type="text" class="form-control" placeholder="Your name here" ng-model="username">
-                <!-- <div class="panel-heading">
-                    <span>Private Chat </span>
-                </div> -->
                 <div class="panel-body fixed-panel" scroll-glue="glued">
                     <ul class="media-list">
 
@@ -53,18 +56,6 @@
                 </div>
             </div>
         </div>
-
-        <div ng-app="chat" ng-controller="ChatController">
-          <button style="padding: 4px 8px; color: #8c8c8c; text-align: center; font-size:14px;" id="button" ng-click="kill">Kill Queue</button>
-        </div>
-
-        <!-- <script type="text/javascript">
-        var app = angular.module("chat", []);
-        app.controller("ChatController", function($scope) {
-          $scope.kill = $scope.delete_queue
-        });
-        </script> -->
-
     </div>
 </div>
 
@@ -73,7 +64,7 @@
     <script src="https://cdn.firebase.com/libs/angularfire/0.9.2/angularfire.min.js"></script>
     <script src="scripts/chat/chat.module.js"></script>
     <script src="scripts/chat/services/chat.service.js"></script>
-    <script src="scripts/chat/controllers/chat.controller.js"></script>
+    <script src="scripts/chat/controllers/chat.public_controller.js"></script>
     <script src="https://cdn.rawgit.com/Luegg/angularjs-scroll-glue/v2.0.2/src/scrollglue.js"></script>
 </body>
 </html>
